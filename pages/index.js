@@ -1,35 +1,49 @@
 import axios from "axios";
 import QuizCard from '../components/quizCard';
 import { useState } from 'react';
+import ScoreCard from '../components/scoreCard';
 
 export default function Home({quiz}) {
 const [val, setVal] = useState(0);
-const [pro, setProgress] = useState([null]);
+const [pro, setProgress] = useState([]);
 
   const clicked = (progress) => {
     setProgress(pro => [...pro, progress])
-    if (val > 8) {
-      alert("ran out")
-      setVal(0)
-    } else {
+  }
+
+  const nextQ = () => {
+    if (val < 9) {
       const data = val + 1;
       setVal(data)
       console.log(val);
-    }    
+    
+    } else {
+      alert("ran out")
+      // setVal(0)  
+    }
   }
 
   console.log(pro);
-  console.log(quiz);
+  
   return (
     <>
     <div className="container">
-          <QuizCard
-          handleClick={clicked}
-           question={quiz.results[val].question}
-           correct_answer={quiz.results[val].correct_answer}
-           incorrect_answers={quiz.results[val].incorrect_answers}
+      {
+        val < 9 ? 
+        <div>
+        <QuizCard
+        handleClick={clicked}
+         question={quiz.results[val].question}
+         correct_answer={quiz.results[val].correct_answer}
+         incorrect_answers={quiz.results[val].incorrect_answers}
+         /> 
+         <button onClick={clicked, nextQ}>click</button>
+        </div>
+         : <ScoreCard 
+              len={pro.length}
            />
-      <button onClick={clicked}>click</button>
+      }
+          
     </div>
     </>
   )

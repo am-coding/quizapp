@@ -1,7 +1,6 @@
 import { Heading } from "@chakra-ui/react"
 import { Box } from "@chakra-ui/react"
 import { useRadio, useRadioGroup, HStack } from "@chakra-ui/react"
-import { useState } from 'react';
 
 function RadioCard(props) {
     const { getInputProps, getCheckboxProps } = useRadio(props)
@@ -45,7 +44,7 @@ function RadioCard(props) {
        if (options === nextValue) {
         handleClick(nextValue)
        } else {
-           handleClick(null)
+         console.log("wrong lol");
        }
     }
     const { getRootProps, getRadioProps } = useRadioGroup({
