@@ -9,7 +9,7 @@ function RadioCard(props) {
     const checkbox = getCheckboxProps()
   
     return (
-      <Box as="label">
+      <Box bgColor="red" as="label">
         <input {...input} />
         <Box
           {...checkbox}
@@ -25,8 +25,8 @@ function RadioCard(props) {
           _focus={{
             boxShadow: "outline",
           }}
-          px={5}
-          py={3}
+          px={4}
+          py={2}
         >
           {props.children}
         </Box>
@@ -72,8 +72,8 @@ function RadioCard(props) {
 
 const QuizCard = ({question, correct_answer, incorrect_answers, handleClick}) => {
     return (
-            <Box>
-                <Heading size="lg" as="h1" fontWeight="600">{question}</Heading>
+            <Box style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+                <Heading size="md" as="h1" fontWeight="600">{question}</Heading>
                 <Example
                  options={correct_answer}
                  ioptions={incorrect_answers}

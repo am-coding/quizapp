@@ -2,6 +2,7 @@ import axios from "axios";
 import QuizCard from '../components/quizCard';
 import { useState } from 'react';
 import ScoreCard from '../components/scoreCard';
+import { Button, Heading } from "@chakra-ui/react"
 
 export default function Home({quiz}) {
 const [val, setVal] = useState(0);
@@ -28,16 +29,17 @@ const [pro, setProgress] = useState([]);
   return (
     <>
     <div className="container">
+      <Heading as="h1" size="lg">Play a Tech Quiz!</Heading>
       {
         val < 9 ? 
-        <div>
+        <div className="quiz">
         <QuizCard
         handleClick={clicked}
          question={quiz.results[val].question}
          correct_answer={quiz.results[val].correct_answer}
          incorrect_answers={quiz.results[val].incorrect_answers}
          /> 
-         <button onClick={clicked, nextQ}>click</button>
+         <Button colorScheme="teal" variant="outline" size="md" border="2px" mt="12" onClick={clicked, nextQ}>click</Button>
         </div>
          : <ScoreCard 
               len={pro.length}
