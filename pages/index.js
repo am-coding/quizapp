@@ -39,7 +39,7 @@ const [pro, setProgress] = useState([]);
          correct_answer={quiz.results[val].correct_answer}
          incorrect_answers={quiz.results[val].incorrect_answers}
          /> 
-         <Button colorScheme="teal" variant="outline" size="md" border="2px" mt="12" onClick={clicked, nextQ}>click</Button>
+         <Button colorScheme="teal" variant="outline" size="md" border="2px" mt="12" onClick={clicked, nextQ}>Select</Button>
         </div>
          : <ScoreCard 
               len={pro.length}
